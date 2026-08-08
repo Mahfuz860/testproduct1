@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ThreadCart - Order your favorite product online.">
+  <title>ThreadCart | Product</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- =========================
+       THREADCART PRODUCT PAGE
+       ========================= -->
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo">threadcart</a>
+      <a href="#order" class="header-order-btn">Order Now</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- PRODUCT SECTION -->
+    <section class="product-section">
+      <div class="container product-grid">
+
+        <div class="product-image-wrap">
+          <!-- CHANGE PRODUCT IMAGE HERE -->
+          <img
+            src="https://placehold.co/900x1100/f3f3f3/222?text=Your+Product"
+            alt="Product image"
+            class="product-image"
+          >
+        </div>
+
+        <div class="product-info">
+
+          <!-- =========================================
+               CHANGE PRODUCT TITLE HERE
+               ========================================= -->
+          <p class="eyebrow">THREADCART</p>
+          <h1 id="productTitle">Your Product Title Here</h1>
+
+          <!-- =========================================
+               CHANGE PRODUCT DESCRIPTION HERE
+               ========================================= -->
+          <div class="product-description">
+            <p id="productDescription">
+              Write your product description here. Explain what makes the
+              product useful, its main features, material, size, quality,
+              or anything else your customer should know.
+            </p>
+          </div>
+
+          <!-- CHANGE PRODUCT PRICE HERE -->
+          <div class="price-row">
+            <span class="price" id="productPrice" data-price="990">৳990</span>
+            <span class="old-price">৳1,290</span>
+            <span class="discount">SAVE 23%</span>
+          </div>
+
+          <div class="trust-row">
+            <span>✓ Cash on Delivery</span>
+            <span>✓ Easy ordering</span>
+            <span>✓ Fast delivery</span>
+          </div>
+
+          <a href="#order" class="primary-btn">Order Now</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORDER SECTION -->
+    <section class="order-section" id="order">
+      <div class="container order-layout">
+
+        <div class="order-copy">
+          <p class="eyebrow">PLACE YOUR ORDER</p>
+          <h2>Get it delivered to your door.</h2>
+          <p>
+            Fill in your details below. Your delivery charge is calculated
+            automatically based on your location.
+          </p>
+
+          <div class="delivery-card">
+            <div>
+              <strong>Inside Dhaka</strong>
+              <span>Delivery ৳120</span>
+            </div>
+            <div>
+              <strong>Outside Dhaka</strong>
+              <span>Delivery ৳150</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="order-card">
+          <!--
+            EMAIL SETUP:
+            Replace YOUR_EMAIL_HERE with the email address where you want
+            to receive orders.
+
+            Example:
+            https://formsubmit.co/yourname@example.com
+
+            FormSubmit is used here so the site can work on GitHub Pages
+            without your own backend.
+          -->
+          <form
+            id="orderForm"
+            action="https://formsubmit.co/mujahidmahfuj1@gmail.com"
+            method="POST"
+          >
+
+            <input type="hidden" name="_subject" value="New ThreadCart Order">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="true">
+            <input type="hidden" name="_next" value="https://YOUR-GITHUB-USERNAME.github.io/YOUR-REPOSITORY/order-success.html">
+
+            <!-- These hidden fields are filled by JavaScript -->
+            <input type="hidden" name="Product" id="emailProduct">
+            <input type="hidden" name="Unit Price" id="emailUnitPrice">
+            <input type="hidden" name="Quantity" id="emailQuantity">
+            <input type="hidden" name="Delivery Area" id="emailArea">
+            <input type="hidden" name="Delivery Charge" id="emailDelivery">
+            <input type="hidden" name="Total Amount" id="emailTotal">
+
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Full name *</label>
+                <input type="text" id="name" name="Customer Name" placeholder="Your full name" required>
+              </div>
+
+              <div class="field">
+                <label for="phone">Phone number *</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="Phone"
+                  placeholder="01XXXXXXXXX"
+                  inputmode="numeric"
+                  required
+                >
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="area">Delivery area *</label>
+              <select id="area" name="Location" required>
+                <option value="">Select delivery area</option>
+                <option value="Inside Dhaka" data-charge="120">Inside Dhaka — ৳120</option>
+                <option value="Outside Dhaka" data-charge="150">Outside Dhaka — ৳150</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="address">Full delivery address *</label>
+              <textarea
+                id="address"
+                name="Delivery Address"
+                rows="3"
+                placeholder="House, road, area, district..."
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="quantity">Quantity *</label>
+                <div class="quantity-control">
+                  <button type="button" id="minusBtn" aria-label="Decrease quantity">−</button>
+                  <input type="number" id="quantity" name="Quantity Input" value="1" min="1" max="20" readonly>
+                  <button type="button" id="plusBtn" aria-label="Increase quantity">+</button>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="variant">Size / color</label>
+                <input
+                  type="text"
+                  id="variant"
+                  name="Size or Color"
+                  placeholder="e.g. XL / Black"
+                >
+              </div>
+            </div>
+
+            <div class="summary">
+              <div><span>Product</span><strong id="summaryProduct">Your Product Title Here</strong></div>
+              <div><span>Price</span><strong id="summaryPrice">৳990</strong></div>
+              <div><span>Quantity</span><strong id="summaryQuantity">1</strong></div>
+              <div><span>Delivery</span><strong id="summaryDelivery">Select area</strong></div>
+              <div class="total"><span>Total</span><strong id="summaryTotal">৳990</strong></div>
+            </div>
+
+            <button type="submit" class="submit-btn">Place Order</button>
+
+            <p class="secure-note">🔒 Your information is used only to process your order.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features-section">
+      <div class="container features-grid">
+        <div class="feature">
+          <span>01</span>
+          <h3>Quality product</h3>
+          <p>Change this text to explain your product quality.</p>
+        </div>
+        <div class="feature">
+          <span>02</span>
+          <h3>Cash on delivery</h3>
+          <p>Customers can pay when their order arrives.</p>
+        </div>
+        <div class="feature">
+          <span>03</span>
+          <h3>Simple ordering</h3>
+          <p>A short checkout keeps the buying process easy.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <strong>threadcart</strong>
+      <span>© <span id="year"></span> ThreadCart. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
